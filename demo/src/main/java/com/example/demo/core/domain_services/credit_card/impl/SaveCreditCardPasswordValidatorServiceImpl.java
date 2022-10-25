@@ -4,9 +4,11 @@ import com.example.demo.core.dto.credit_card.CreditCardInfoDTO;
 import com.example.demo.core.domain_services.credit_card.SaveCreditCardValidatorService;
 import com.example.demo.core.exception.credit_card.CreditCardInvalidException;
 import com.example.demo.core.exception.credit_card.CreditCardPasswordInvalidException;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
+@Qualifier("saveCreditCardPasswordValidatorServiceImpl")
 public class SaveCreditCardPasswordValidatorServiceImpl implements SaveCreditCardValidatorService {
     @Override
     public void validate(CreditCardInfoDTO creditCardInfoDTO) throws CreditCardInvalidException {
