@@ -23,6 +23,14 @@ public class CreditCard {
 
     private BigDecimal balance;
 
+    public boolean hasAvailableAmount(BigDecimal amount) {
+        return this.balance.compareTo(amount) > 0;
+    }
+
+    public void debitBalance(BigDecimal amount) {
+        this.balance = this.balance.subtract(amount);
+    }
+
 
 
 }

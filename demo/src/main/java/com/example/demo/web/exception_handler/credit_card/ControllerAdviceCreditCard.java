@@ -1,10 +1,7 @@
 package com.example.demo.web.exception_handler.credit_card;
 
 import com.example.demo.core.domain.error.ErrorResponse;
-import com.example.demo.core.exception.credit_card.CardNumberInvalidException;
-import com.example.demo.core.exception.credit_card.CreditCardExistsException;
-import com.example.demo.core.exception.credit_card.CreditCardNotFoundException;
-import com.example.demo.core.exception.credit_card.CreditCardPasswordInvalidException;
+import com.example.demo.core.exception.credit_card.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
@@ -43,5 +40,11 @@ public class ControllerAdviceCreditCard extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> creditCardNotFoundException(CreditCardNotFoundException exception) {
         logger.info(exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse("CREDIT_CARD_NOT_FOUND", exception.getMessage()));
+    }
+
+    @ExceptionHandler(value = NoAvailableAmountException.class)
+    public ResponseEntity<?> noAvailableAmountException(NoAvailableAmountException exception) {
+        logger.info(exception.getMessage());
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(new ErrorResponse("NO_AVAILABLE_AMOUNT", exception.getMessage()));
     }
 }

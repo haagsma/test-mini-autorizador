@@ -20,7 +20,7 @@ public class CreateCreditCardTest {
     public void create_new_credit_card_with_success() throws CreditCardInvalidException, CreditCardExistsException {
 
         this.creatorCreditCardService.create(CreditCardInfoDTO.builder()
-                .numeroCartao("6549873025634501")
+                .numeroCartao("6549873025234501")
                 .senha("1234")
                 .build());
     }
@@ -28,7 +28,7 @@ public class CreateCreditCardTest {
     @Test
     public void create_new_credit_card_with_number_card_invalid() {
         Assertions.assertThrows(CardNumberInvalidException.class, () -> this.creatorCreditCardService.create(CreditCardInfoDTO.builder()
-                .numeroCartao("654987302563451")
+                .numeroCartao("654987202563451")
                 .senha("1234")
                 .build()));
     }
@@ -36,7 +36,7 @@ public class CreateCreditCardTest {
     @Test
     public void create_new_credit_card_with_password_invalid() {
         Assertions.assertThrows(CreditCardPasswordInvalidException.class, () -> this.creatorCreditCardService.create(CreditCardInfoDTO.builder()
-                .numeroCartao("6549873025634501")
+                .numeroCartao("6549872025634501")
                 .senha("12341")
                 .build()));
     }

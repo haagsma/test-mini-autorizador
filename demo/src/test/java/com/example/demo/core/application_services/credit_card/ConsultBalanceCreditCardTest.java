@@ -38,7 +38,7 @@ public class ConsultBalanceCreditCardTest {
     @Test
     public void consult_balance_credit_card_not_found() throws CreditCardExistsException, CreditCardInvalidException {
         this.creatorCreditCardService.create(CreditCardInfoDTO.builder()
-                .numeroCartao("6549873025634551")
+                .numeroCartao("6249573025634551")
                 .senha("1234")
                 .build());
 
